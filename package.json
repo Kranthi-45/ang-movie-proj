@@ -1,5 +1,5 @@
 {
-  "name": "angular-movie-proj",
+  "name": "login-admin-user",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,14 +10,21 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.1.1",
+    "@angular/animations": "^12.1.5",
+    "@angular/cdk": "^12.2.13",
     "@angular/common": "~12.1.1",
     "@angular/compiler": "~12.1.1",
     "@angular/core": "~12.1.1",
     "@angular/forms": "~12.1.1",
+    "@angular/material": "^12.2.13",
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
     "@angular/router": "~12.1.1",
+    "@fortawesome/angular-fontawesome": "^0.9.0",
+    "angular-toastify": "^1.0.4",
+    "ng-angular-popup": "^0.2.0",
+    "ngx-pagination": "^6.0.2",
+    "ngx-toastr": "^16.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

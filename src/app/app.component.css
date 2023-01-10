@@ -1,0 +1,27 @@
+.toggler{
+  position:absolute;
+  right:200px;
+  z-index: 1;
+  top:15px
+}
+.toggler label{
+  color:white
+}
+.form-switch{
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
+@media only screen and (max-width: 565px){
+  .toggler {
+      right: 80px;
+  }
+  .form-switch {
+    font-size: 15px;
+  }
+  .toggler label {
+    font-size: 15px;
+  }
+}

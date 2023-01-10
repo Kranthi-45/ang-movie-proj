@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    margin: 0;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;   
+  }
+  body {
+    --text-color: #222;
+    --bkg-color: #fff;
+    --btn-txt-color: white;
+    --btn-bg-color: rgb(11, 88, 160);
+    --btn-card-title:black;
+    --mdl-cont-color: #fff;
+    --pagination-color: #e6e6e6;
+  }
+  body.dark-theme {
+    --text-color: #eee;
+    --bkg-color: #252222;
+    --btn-txt-color: rgb(46, 43, 43);
+    --btn-bg-color: rgb(20, 211, 195);
+    --bkg-card-color: #322f2f;
+    --btn-card-title: white;
+    --mdl-cont-color: #2e2d2d;
+    --pagination-color: #e6e6e61c;
+  }
+  
+  body {
+    background: var(--bkg-color);
+  }
+  .card-deck .card {
+    background: var(--bkg-card-color);
+  }
+  .cards-title{
+    color: var(--btn-card-title);
+  }
+  h1, p, label, .pagination, .modal-title, .btn-close, .refresh-age, .loading{
+    color: var(--text-color);
+  }
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    color: var(--btn-txt-color);
+    background-color: var(--btn-bg-color);
+  }
+  .modal-content, .search-input{
+    background-color: var(--mdl-cont-color);
+  }
+  .modal-content, .search-input :focus{
+    background-color: var(--mdl-cont-color);
+  }
+  .ngx-pagination a:hover, .ngx-pagination button:hover {
+    background-color: var(--pagination-color);
+  }
+html, body:first-child { 
+  height: 100%; 
+}

@@ -1,0 +1,95 @@
+.movie-head{
+  text-align: center; 
+  padding-top: 20px; 
+  color: grey;
+}
+.container{
+  max-width: 100%;
+}
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-deck .card {
+  flex: 0 0 400px;
+  padding: 20px 20px;
+  border: 1px solid #D7DFE9;
+  border-radius: 4px;
+  margin:20px
+}
+.card-deck .card:hover{
+  cursor: pointer;
+  background: ghostwhite;
+}
+.card-top{
+  width: 90%;
+  gap: 20px;
+  margin: auto;
+  text-align: center;
+}
+.card-img {
+  width: 144px;
+}
+.cards-title{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+.card-text{
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #7E858E;
+}
+.card-body{
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px 0px 0px;
+}
+.card-description{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #7E858E;
+  padding: 20px;
+}
+.d-flex{
+  width: 40%;
+  margin: auto;
+  margin-top: 40px;
+}
+.form-control {
+  -webkit-appearance: auto;
+  appearance: auto
+}
+.form-check{
+  margin-left: 10px;
+}
+.refresh-age{
+  text-align: center;
+  margin:20px;
+}
+.fa-refresh{
+  font-size: 40px;
+  cursor: pointer;;
+}
+.fa-refresh:hover i::before{
+  font-size: 70px;
+}
+.pagination{
+  justify-content: center;
+}
+.dark-theme .card-deck .card:hover{
+  cursor: pointer;
+  background: #d0d0d033;
+}
+
+@media only screen and (max-width: 565px){
+ form.d-flex{
+  width: 60%;
+ }
+ .card-deck .card {
+  flex: 0 0 80%;
+ }
+}

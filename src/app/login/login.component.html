@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onefin Login Page</title>
+</head>
+<body>
+    <h3 class="login-head">Login Page</h3>
+    <div  class="login-container" >
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="username" >User Name:</label>
+          <input type="username" class="form-control" placeholder="Enter User Name" id="username" formControlName="username" [pattern]="unamePattern" [ngClass]="{'is-invalid': loginForm.get('username').touched && loginForm.get('username').invalid}">          
+          <div *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid" class="invalid-feedback">
+            <div *ngIf="loginForm.get('username').errors.required">UserName is required</div>
+            <div *ngIf="loginForm.get('username').errors.pattern">Alphabets only, No special characters</div>
+            <div *ngIf="loginForm.get('username').errors.maxlength">Max 10 characters </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" placeholder="Enter password" id="pwd" formControlName="password" [ngClass]="{'is-invalid': loginForm.get('password').touched && loginForm.get('password').invalid}">
+          <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="invalid-feedback">
+            <div *ngIf="loginForm.get('password').errors.required">Password is required</div>
+            <div *ngIf="loginForm.get('password').errors.minlength">Min 5 characters </div>
+          </div>
+        </div><br/>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="status">
+          <strong>Invalid Credentials</strong>
+          <button type="button" class="btn-close" (click)="error()" aria-label="Close"></button>
+        </div>
+        <div class="buttons-container">
+        <button [disabled]=!loginForm.valid type="submit" class="btn btn-primary form-control" value="submit" (click)="login()">Login</button>
+        <button type="reset" class="btn btn-danger form-control">Cancel</button>
+        </div>
+
+        <div class="loading" *ngIf="isLoading" style="margin-top: 40px;" > 
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>&nbsp;
+            <strong> Loading...</strong>
+          </div>
+        </div>
+      </form>
+    </div>   
+</body>
+</html>
