@@ -10,29 +10,52 @@
     color: grey;
 }
 :disabled{
-    background-color: #0000ffdb;
+    background-color: #198754;    
     cursor:not-allowed;
 }
 .buttons-container{
     text-align: center;
-    margin-right: 20px;
+    width: 100%;
 }
-button{
+button:not(.btn-close){
     width: 80px;
-    margin:0px 10px
+    margin:0px 10px;
+}
+button label{
+    color:white;
+    cursor: pointer;
+
+}
+button[type=submit]{
+    color: white;
+    width: 40%;
+}
+button[type=reset]{ 
+    color: white;
+    width: 40%;
 }
 @media only screen and (max-width: 765px){
     .login-container{
-        width: 50%;
+        width: 80%;
     }
     .buttons-container{
-    display: inline-grid;
-    flex-direction: COLUMN;
-    width: 100%;
-    justify-content: center;
+        width: 100%;
+        justify-content: center;
     }
     button{
-        width: 120px;
         margin-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 575px){
+
+    button[type=submit],  button[type=reset]{
+        color: white;
+        width: 100%;
+    }
+    button:not(.btn-close) {
+        margin: 0px 0px 10px 0px;
+    }
+    .alert-danger{
+        font-size: 12px;
     }
 }
