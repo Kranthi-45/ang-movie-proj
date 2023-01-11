@@ -1,0 +1,23 @@
+.error404{
+    text-align: center;
+    margin-top:40px;
+}
+.error404 img{
+    width: 24%;
+}
+.errorMessage{
+    text-align: center;
+    color: grey;
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+@media only screen and (max-width: 575px){
+
+    .error404 img{
+        width: 25%;
+    }
+    .errorMessage{
+        font-size: 20px;
+    }
+}
