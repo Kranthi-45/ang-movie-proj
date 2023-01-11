@@ -116,10 +116,6 @@ export class MovieComponent implements OnInit {
     this.modalData = movie;
   }
 
-  search1() {
-    // this.isLoading = true;
-  }
-
   refresh() {
     window.location.reload();
   }

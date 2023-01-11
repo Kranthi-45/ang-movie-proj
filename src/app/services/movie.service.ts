@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,14 +7,26 @@ import { Injectable } from '@angular/core';
 export class MovieService {
 
   url: string = 'https://demo.credy.in/api/v1/maya/movies/';
-  constructor(private http: HttpClient) { }
+  headerOptions:any = {}
+  
+  constructor(private http: HttpClient) { 
+    this.getLoginToken();
+  }
+
+  getLoginToken() {
+    this.headerOptions = {
+      headers: {
+        Authorization: 'Token ' + localStorage.getItem("token")
+      }
+    }
+  }
 
   getAllMovies() {
-    return this.http.get(this.url);
+    return this.http.get(this.url,this.headerOptions);
   }
 
   getAllMoviesNext(url1: string) {
-    return this.http.get(url1);
+    return this.http.get(url1,this.headerOptions);
   }
 
 }
