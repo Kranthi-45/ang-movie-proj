@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ThemeSharedService } from '../services/theme-shared.service';
 
 @Component({
-  selector: 'app-page-not-found',
-  templateUrl: './page-not-found.component.html',
-  styleUrls: ['./page-not-found.component.css']
+  selector: 'app-logout',
+  templateUrl: './logout.component.html',
+  styleUrls: ['./logout.component.css']
 })
-export class PageNotFoundComponent implements OnInit {
+export class LogoutComponent implements OnInit {
 
   constructor(private ts: ThemeSharedService) { }
 

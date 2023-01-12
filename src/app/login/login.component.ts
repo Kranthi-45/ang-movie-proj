@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
+import { ThemeSharedService } from '../services/theme-shared.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,35 +15,15 @@ export class LoginComponent implements OnInit {
   unamePattern = "[a-zA-Z0-9]+";
   userDetails: any;
   isLoading: boolean = false;
-  errorMessage:String = "";
-  constructor(private fb: FormBuilder, private router: Router, private ls: LoginService) {
+  errorMessage: String = "";
+  constructor(private fb: FormBuilder, private router: Router, private ls: LoginService, private ts: ThemeSharedService) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.maxLength(15)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
   ngOnInit(): void {
-    let checkBox = document.querySelector("#flexSwitchCheckDefault") as HTMLInputElement | null;
-    var isDark = localStorage.getItem("isDark");
-    if (isDark == "true") {
-      document.querySelectorAll("body").forEach(element => {
-        if (!element.classList.contains("dark-theme")) {
-          element.classList.add('dark-theme');
-          if (checkBox != null) {
-            checkBox.checked = true;
-          }
-        }
-      });
-    } else {
-      document.querySelectorAll("body").forEach(element => {
-        if (element.classList.contains("dark-theme")) {
-          element.classList.remove('dark-theme');
-        }
-        if (checkBox != null) {
-          checkBox.checked = false;
-        }
-      });
-    }
+    this.ts.checkingThemeOnLoad();
   }
 
   get f() {
@@ -81,8 +62,8 @@ export class LoginComponent implements OnInit {
       this.isLoading = false;
     });
   }
-  
-  error(){
+
+  error() {
     this.status = false;
   }
 }

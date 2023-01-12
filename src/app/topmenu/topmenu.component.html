@@ -13,7 +13,7 @@
           <a class="navbar-brand" href="javascript:void(0)">
              <i class='fas fa-user' *ngIf = "status == 'Logout'"></i>
           </a>
-          <button class="btn btn-primary" type="button" (click)="loginLogout()">{{status}} 
+          <button class="btn btn-primary" type="button" (click)="loginLogout()" #statusRef>{{status}} 
             <span *ngIf = "status == 'Login'"> <i class="fa fa-sign-in" aria-hidden="true"></i> </span>
             <span *ngIf = "status == 'Logout'"> <i class="fa fa-sign-out" aria-hidden="true"></i> </span>
           </button>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MovieService } from '../services/movie.service';
 import { fromEvent, Subject } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, filter } from "rxjs/operators";
+import { ThemeSharedService } from '../services/theme-shared.service';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -21,6 +22,7 @@ export class MovieComponent implements OnInit {
   totalItems: any;
   isLoading: boolean = false;
   searching: boolean = false;
+  isDisabled: boolean = false;
   modalData: any = {
     title: "",
     description: "",
@@ -28,31 +30,10 @@ export class MovieComponent implements OnInit {
   };
 
   @ViewChild('searchTerm', { static: true }) searchTerm!: ElementRef;
-  constructor(private ms: MovieService) {
+  constructor(private ms: MovieService, private ts: ThemeSharedService) {
   }
   ngOnInit(): void {
-    let isDark = localStorage.getItem("isDark");
-    let checkBox = document.querySelector("#flexSwitchCheckDefault") as HTMLInputElement | null;
-    if (isDark == "true") {
-      document.querySelectorAll("body").forEach(element => {
-        if (!element.classList.contains("dark-theme")) {
-          element.classList.add('dark-theme');
-          if (checkBox != null) {
-            checkBox.checked = true;
-          }
-        }
-      });
-    } else {
-      document.querySelectorAll("body").forEach(element => {
-        if (element.classList.contains("dark-theme")) {
-          element.classList.remove('dark-theme');
-          if (checkBox != null) {
-            checkBox.checked = false;
-          }
-        }
-      });
-    }
-
+    this.ts.checkingThemeOnLoad();
     this.isLoading = true;
     this.getAllMovies();
     fromEvent(this.searchTerm.nativeElement, 'keyup').pipe(
@@ -98,12 +79,14 @@ export class MovieComponent implements OnInit {
       this.totalItems = this.movies.count;
       this.refreshPage = false;
       this.isLoading = false;
+      this.isDisabled = false;
     },
-    (error) => {
-      console.log("------------Error Occured Refresh the Page----------")
-      this.refreshPage = true;
-      this.isLoading = false;
-    });
+      (error) => {
+        console.log("------------Error Occured Refresh the Page----------")
+        this.refreshPage = true;
+        this.isLoading = false;
+        this.isDisabled = true;
+      });
   }
   getNextMovies(page: any) {
     this.ms.getAllMoviesNext(`https://demo.credy.in/api/v1/maya/movies?page=${page}&size=${this.itemsPerPage}`).subscribe((data: any) => {

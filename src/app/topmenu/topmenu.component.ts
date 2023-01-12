@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-topmenu',
@@ -7,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./topmenu.component.css'],
   providers: []
 })
-export class TopmenuComponent implements OnInit {
+export class TopmenuComponent implements OnInit{
 
   logginUser: any;
   status: any;
+    
+  @ViewChild('statusRef') statusRef!: ElementRef<HTMLInputElement>;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -22,8 +25,12 @@ export class TopmenuComponent implements OnInit {
   }
 
   loginLogout() {
-    this.router.navigate(['']);
-    localStorage.removeItem("token");
+    let userStatus = this.statusRef.nativeElement.textContent?.trim() ;
+    if(userStatus == 'Login'){
+      this.router.navigate(['']);
+    }else{
+      localStorage.removeItem("token")
+      this.router.navigate(['logout']);
+    }
   }
-
 }

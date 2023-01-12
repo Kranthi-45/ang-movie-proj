@@ -1,0 +1,29 @@
+.checkmark{
+    text-align: center;
+    margin-top:120px;
+    min-height: 300px;
+    margin-bottom: 80px;
+}
+.checkmark img{
+    width: 5%;
+    border-radius: 100px;
+}
+.logoutMessage{
+    text-align: center;
+    color: grey;
+    font-size: 20px;
+    margin-top: 40px;
+}
+@media only screen and (max-width: 575px){
+    .checkmark{
+        text-align: center;
+        margin-top:100px;
+        min-height: 160px;
+    }
+    .checkmark img{
+        width: 20%;
+    }
+    .logoutMessage{
+        font-size: 18px;
+    }
+}

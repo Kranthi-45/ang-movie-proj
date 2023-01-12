@@ -1,22 +1,24 @@
-
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>OneFin Movie</title>
-    </head>
-    <body>
-      <span class="toggler">
-        <label>Light</label> &nbsp;
-        <div class="form-switch" (click)="toggleDarkTheme()" >
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-        </div>
-        <label>Dark</label>
-      </span>
-      <app-topmenu></app-topmenu>
-      <router-outlet></router-outlet>
-      <app-footer></app-footer>
-    </body>
-  </html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneFin Movie</title>
+</head>
+
+<body>
+  <span class="toggler">
+    <label>Light</label> &nbsp;
+    <div class="form-switch" (click)="toggleDarkTheme()">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchMode">
+    </div>
+    <label>Dark</label>
+  </span>
+  <app-topmenu></app-topmenu>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</body>
+
+</html>

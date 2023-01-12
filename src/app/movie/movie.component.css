@@ -66,9 +66,13 @@
 .form-check{
   margin-left: 10px;
 }
+.alert-container{
+  min-height: 220px;
+}
 .refresh-age{
   text-align: center;
   margin:20px;
+  min-height: 300px;
 }
 .fa-refresh{
   font-size: 40px;
@@ -76,6 +80,9 @@
 }
 .fa-refresh:hover i::before{
   font-size: 70px;
+}
+.loading{
+  min-height: 280px;
 }
 .pagination{
   justify-content: center;

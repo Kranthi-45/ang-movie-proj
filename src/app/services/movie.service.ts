@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class MovieService {
 
   url: string = 'https://demo.credy.in/api/v1/maya/movies/';
-  headerOptions:any = {}
-  
-  constructor(private http: HttpClient) { 
+  headerOptions: any = {}
+
+  constructor(private http: HttpClient) {
     this.getLoginToken();
   }
 
@@ -22,11 +22,11 @@ export class MovieService {
   }
 
   getAllMovies() {
-    return this.http.get(this.url,this.headerOptions);
+    return this.http.get(this.url, this.headerOptions);
   }
 
   getAllMoviesNext(url1: string) {
-    return this.http.get(url1,this.headerOptions);
+    return this.http.get(url1, this.headerOptions);
   }
 
 }

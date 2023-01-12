@@ -1,6 +1,7 @@
-import { ViewEncapsulation } from '@angular/core';
+import { OnInit, ViewEncapsulation } from '@angular/core';
 import { Component, ViewChild } from '@angular/core';
 import { LoginComponent } from './login/login.component';
+import { ThemeSharedService } from './services/theme-shared.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,15 @@ import { LoginComponent } from './login/login.component';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent{
+export class AppComponent implements OnInit {
   title = 'OneFin Movie Page';
-  constructor() { }
+  constructor(private ts: ThemeSharedService) { }
 
   @ViewChild(LoginComponent) private myChild!: LoginComponent;
+
+  ngOnInit() {
+    this.ts.checkingThemeOnLoad();
+  }
   toggleDarkTheme(): void {
     document.querySelectorAll("body").forEach(element => {
       element.classList.toggle('dark-theme');
@@ -23,4 +28,5 @@ export class AppComponent{
       localStorage.removeItem("isDark");
     }
   }
+
 }

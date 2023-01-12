@@ -9,7 +9,7 @@
 <body>
   <h3 class="movie-head">Movie Details Page</h3>
   <form class="d-flex">
-    <input class="form-control me-1 search-input" #searchTerm type="search" placeholder="Search by Title Name..." aria-label="Search" name="search" [(ngModel)]="search"  >
+    <input class="form-control me-1 search-input" #searchTerm type="search" placeholder="Search by Title Name..." aria-label="Search" name="search" [(ngModel)]="search" [disabled]="isDisabled" >
     <button class="btn btn-info" style="color:white" type="submit">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
@@ -35,9 +35,11 @@
         </div>
       </div><br/>
 
-      <div class="alert alert-danger" style="width:950px;text-align: center;margin:auto" *ngIf="searchNoRecords">
-        <strong>No matching records found !!!</strong>
-      </div> 
+      <div class="alert-container">
+        <div class="alert alert-danger" style="width:950px;text-align: center;margin:auto" *ngIf="searchNoRecords">
+          <strong>No matching records found !!!</strong>
+        </div> 
+      </div>
       <ng-container *ngIf="!searchNoRecords">
         <pagination-controls (pageChange)="getNextMovies((page = $event))" class="pagination"></pagination-controls>
       </ng-container>
