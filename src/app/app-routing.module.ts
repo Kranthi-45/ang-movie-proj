@@ -8,7 +8,7 @@ import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
-  {path:"admin", canActivate:[AuthGuard], component:MovieComponent},
+  {path:"movie", canActivate:[AuthGuard], component:MovieComponent},
   {path:"logout", component:LogoutComponent},
   {path:"**",component:PageNotFoundComponent}
 ];

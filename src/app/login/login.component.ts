@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       if (this.userDetails.is_success) {
         localStorage.setItem("token", this.userDetails.data.token);
         console.log("User successfully logged In...");
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/movie']);
         this.status = false;
         this.isLoading = false;
       }
